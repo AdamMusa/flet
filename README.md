@@ -51,7 +51,7 @@ require 'flet/Row'
 require 'flet/TextField'
 require 'flet/icons'
 
-def main(page = new Page):
+def main(page = new Page)
     page.title = "Flet counter example"
     page.vertical_alignment = "center"
 
@@ -76,7 +76,7 @@ def main(page = new Page):
             alignment="center",
         )
     )
-
+end
 flet.app target=main 
 ```
 
