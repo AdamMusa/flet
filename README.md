@@ -1,37 +1,122 @@
 # Flet
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/flet`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Install the gem and add to the application's Gemfile by executing:
-
-    $ bundle add flet
-
 If bundler is not being used to manage dependencies, install the gem by executing:
 
     $ gem install flet
 
-## Usage
+# Flet
 
-TODO: Write usage instructions here
+<img src="media/logo/flet-logo.svg" width="50%"/>
 
-## Development
+[![Build status](https://ci.appveyor.com/api/projects/status/xwablctxslvey576/branch/main?svg=true)](https://ci.appveyor.com/project/flet-dev/flet/branch/main)
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Flet is a framework that enables you to easily build realtime web, mobile and desktop apps in your favorite language and securely share them with your team. No frontend experience required.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+### ⚡From idea to app in minutes
 
-## Contributing
+An internal tool or a dashboard for your team, weekend project, data entry form, kiosk app or high-fidelity prototype - Flet is an ideal framework to quickly hack a great-looking interactive apps to serve a group of users.
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/flet. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/flet/blob/master/CODE_OF_CONDUCT.md).
+### 📐 Simple architecture
 
-## License
+No more complex architecture with JavaScript frontend, REST API backend, database, cache, etc. With Flet you just write a monolith stateful app in Python only and get multi-user, realtime Single-Page Application (SPA).
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+### 🔋Batteries included
 
-## Code of Conduct
+To start developing with Flet, you just need your favorite IDE or text editor. No SDKs, no thousands of dependencies, no complex tooling - Flet has built-in web server with assets hosting and desktop clients.
 
-Everyone interacting in the Flet project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/flet/blob/master/CODE_OF_CONDUCT.md).
+### &nbsp;<img src="media/flutter/icon_flutter.svg" height="20px" />&nbsp;&nbsp;Powered by Flutter
+
+Flet UI is built with [Flutter](https://flutter.dev/), so your app looks professional and could be delivered to any platform. Flet simplifies Flutter model by combining smaller "widgets" to ready-to-use "controls" with imperative programming model.
+
+### 🌐 Speaks your language
+
+Flet is language-agnostic, so anyone on your team could develop Flet apps in their favorite language. [Python](https://flet.dev/docs/guides/python/getting-started) is already supported, 
+Ruby under developpment ,Go, C# and others are [coming next](https://flet.dev/docs/roadmap).
+
+### 📱 Deliver to any device
+
+Deploy Flet app as a web app and view it in a browser. Package it as a standalone desktop app for Windows, macOS and Linux. Install it on mobile as [PWA](https://web.dev/what-are-pwas/) or view via Flet app for iOS and Android.
+
+## Flet app example
+
+At the moment you can write Flet apps in Python and other languages will be added soon.
+
+Here is a sample "Counter" app:
+
+```ruby title="counter.rb"
+require 'flet' 
+require 'flet/IconButton'
+require 'flet/Page'
+require 'flet/Row'
+require 'flet/TextField'
+require 'flet/icons'
+
+def main(page = new Page):
+    page.title = "Flet counter example"
+    page.vertical_alignment = "center"
+
+    txt_number = TextField(value="0", text_align="right", width=100)
+
+    def minus_click(e)
+        txt_number.value = int(txt_number.value) - 1
+        page.update()
+    end
+
+    def plus_click(e)
+        txt_number.value = int(txt_number.value) + 1
+        page.update()
+    end
+    page.add(
+        Row(
+            [
+                IconButton(icons.REMOVE, on_click=minus_click),
+                txt_number,
+                IconButton(icons.ADD, on_click=plus_click),
+            ],
+            alignment="center",
+        )
+    )
+
+flet.app target=main 
+```
+
+To run the app install `flet` module:
+
+
+The app will be started in a native OS window - what a nice alternative to Electron!
+
+<img src="https://flet.dev/img/docs/getting-started/flet-counter-macos.png" width="45%" />
+
+
+Now, if you want to run the app as a web app, just replace the last line with:
+
+```ruby
+flet.app target=main, view=flet.WEB_BROWSER
+```
+
+run again and now you instantly get a web app:
+
+<img src="https://flet.dev/img/docs/getting-started/flet-counter-safari.png" width="60%" />
+
+## Getting started
+
+* [for more info check python flet](https://flet.dev/docs/guides/python/getting-started)
+* [ check python flet Controls reference](https://flet.dev/docs/controls)
+
+## check python flet
+
+* [Greeter](https://github.com/flet-dev/examples/blob/main/python/apps/greeter/greeter.py)
+* [Counter](https://github.com/flet-dev/examples/blob/main/python/apps/counter/counter.py)
+* [To-Do](https://github.com/flet-dev/examples/blob/main/python/apps/todo/todo.py)
+* [Icons Browser](https://github.com/flet-dev/examples/blob/main/python/apps/icons-browser/main.py) ([Online Demo](https://flet-icons-browser.fly.dev/))
+
+## Community
+
+* [Discussions](https://github.com/flet-dev/flet/discussions)
+* [Discord](https://discord.gg/dzWXP8SHG8)
+* [Twitter](https://twitter.com/fletdev)
+* [Email](mailto:hello@flet.dev)
+
+## Contribute to this wonderful project
+
+* Read the CONTRIBUTING.md file
