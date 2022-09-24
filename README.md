@@ -18,7 +18,7 @@ An internal tool or a dashboard for your team, weekend project, data entry form,
 
 ### 📐 Simple architecture
 
-No more complex architecture with JavaScript frontend, REST API backend, database, cache, etc. With Flet you just write a monolith stateful app in Python only and get multi-user, realtime Single-Page Application (SPA).
+No more complex architecture with JavaScript frontend, REST API backend, database, cache, etc. With Flet you just write a monolith stateful app in Ruby only and get multi-user, realtime Single-Page Application (SPA).
 
 ### 🔋Batteries included
 
